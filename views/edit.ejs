@@ -1,0 +1,30 @@
+<% include partials/header %>
+
+<div class="ui main container">
+    <div class="ui three column grid">
+        <div class="column"></div>
+        <div class="column">
+            <h1 class="ui header" id="header">Promover Funcionário</h1>
+            <form action="/promocao/<%= funcionario.id %>?_method=PUT" method="POST" class="ui form" id="edit-form">
+                <h4 class="ui header dividing">Informações de <%= funcionario.nome %></h4>
+                <div class="two fields">
+                    <div class="field eight wide">
+                        <label>Cargo</label>
+                        <input type="text" name="funcionario[cargo]" value="<%= funcionario.cargo %>">
+                    </div>
+                    <div class="field eight wide">
+                        <label>Salário</label>
+                        <input type="number" name="funcionario[salario]" value="<%= funcionario.salario %>">
+                    </div>
+                </div>
+                <input type="submit" class="ui blue button" value="Promover">
+                <a href="/funcionario/<%= funcionario.id %>" class="ui blue button">Retornar</a>
+            </form>
+        </div>
+        <div class="column"></div>
+    </div>
+    
+</div>
+
+
+<% include partials/footer %>

@@ -1,0 +1,54 @@
+<% include partials/header %>
+
+<div class="ui main container">
+    <h1 class="ui header" id="header">Lista de Funcionários</h1>
+
+    <div class="ui grid" id="search-grid">
+        <div class="ten wide column">
+            <form action="/encontrar" method="GET" class="ui form">
+                <div class="inline fields">
+                    <div class="thirteen wide field" id="search-div">
+                        <input name="funcionario[id]" type="text" placeholder="Encontre informações de funcionário por ID">
+                    </div>
+                    <div class="three wide field">
+                        <input type="submit" class="ui blue button" value="Encontrar">
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div class="six wide column">
+            <a href="/funcionario/new">
+                <div class="ui blue button right floated">Adicionar Funcionário</div>
+            </a>
+        </div>
+    </div>
+
+    <table class="ui blue celled table" id="func-table">
+        <thead>
+            <tr><th>ID</th>
+            <th>Nome</th>
+            <th>Informações</th></tr>
+        </thead>
+        <tbody>
+            <% funcionarios.forEach(function(funcionario){ %>
+            <tr>
+                <td data-label="Id">
+                    <%= funcionario.id%>
+                </td>
+                <td data-label="Nome">
+                    <%= funcionario.nome %>
+                </td>
+                <td data-label="Informações">
+                    <a href="/funcionario/<%= funcionario.id %>" >
+                        <i class="blue info circle icon"></i>
+                    </a>       
+                </td>   
+            </tr>             
+            <% }); %>
+        </tbody>    
+    </table>
+    
+</div>
+
+<% include partials/footer %>

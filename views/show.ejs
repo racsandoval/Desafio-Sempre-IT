@@ -1,0 +1,45 @@
+<% include partials/header %>
+
+<div class="ui main container">
+        <h1 class="ui header" id="header">Informações de Funcionário</h1>
+
+    <table class="ui blue celled table">
+            <thead>
+                <tr><th>Id</th>
+                <th>Nome</th>
+                <th>Cargo</th>
+                <th>Salário</th>
+                <th>CPF</th></tr>
+            </thead>
+    
+            <tbody>
+                <tr>
+                    <td data-label="Id">
+                        <%= funcionario.id%>
+                    </td>
+                    <td data-label="Nome">
+                        <%= funcionario.nome %>
+                    </td>   
+                    <td data-label="Cargo">
+                        <%= funcionario.cargo %>
+                    </td>   
+                    <td data-label="Salário">
+                        <%= funcionario.salario %>
+                    </td>   
+                    <td data-label="CPF">
+                        <%= funcionario.cpf %>
+                    </td>   
+                </tr>             
+            </tbody>    
+    </table>
+    <a href="/promocao/<%= funcionario.id %>/edit">
+        <div class="ui blue button">Promoção</div>
+    </a>
+    <a href="/funcionarios">
+        <div class="ui blue button">Retornar</div>
+    </a>
+</div>
+
+
+
+<% include partials/footer %>
